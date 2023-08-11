@@ -1,15 +1,15 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreatePlayerDto {
-    @IsNotEmpty()
-    @IsString()
-    readonly phone: String;
-    
-    @IsNotEmpty()
-    @IsString()
-    readonly mail: String;
+  @IsNotEmpty()
+  @IsString()
+  readonly phone: string;
 
-    @IsNotEmpty()
-    @IsString()
-    readonly name: String;
+  @IsNotEmpty()
+  @IsString()
+  readonly mail: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly name: string;
 }

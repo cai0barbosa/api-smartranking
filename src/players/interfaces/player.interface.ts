@@ -1,10 +1,10 @@
-import { Document } from "mongoose";
+import { Document } from 'mongoose';
 
 export interface Player extends Document {
-    name: String,
-    mail: String,
-    phone: String,
-    ranking: String,
-    position: Number,
-    url: String,
+  name: string;
+  mail: string;
+  phone: string;
+  ranking: string;
+  position: number;
+  url: string;
 }
