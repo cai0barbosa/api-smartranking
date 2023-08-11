@@ -3,13 +3,14 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { PlayersService } from './service/players.service';
 import { CreatePlayerDto } from './dto/create-player.dto';
 import { UpdatePlayerDto } from './dto/update-player.dto';
+import { PlayerValidationPipe } from './pipe/player-validation.pipe';
 
 @Controller('api/v1/players')
 export class PlayersController {
@@ -26,20 +27,20 @@ export class PlayersController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id', PlayerValidationPipe) id: string) {
     return this.playersService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   async update(
-    @Param('id') id: string,
+    @Param('id', PlayerValidationPipe) id: string,
     @Body() updatePlayerDto: UpdatePlayerDto,
   ) {
     return this.playersService.update(id, updatePlayerDto);
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id', PlayerValidationPipe) id: string) {
     return this.playersService.remove(id);
   }
 }
