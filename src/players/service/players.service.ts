@@ -17,13 +17,11 @@ export class PlayersService {
     const player = new this.playerModel(createPlayerDto);
     player.save();
 
-
     return player;
   }
 
   async findAll() {
-    return await this.playerModel.find()
-    .exec();
+    return await this.playerModel.find().exec();
   }
 
   async findOne(id: string): Promise<Player> {
